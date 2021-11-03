@@ -1,0 +1,35 @@
+﻿@page
+@model CoolNote.Pages.NoteModel
+
+@{
+    ViewData["Title"] = "Cool Note";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div class="text-center">
+    <h1 class="display-4">Cool Note</h1>
+    @if (string.IsNullOrWhiteSpace(Model.Note))
+    {
+        <p>Add a note</p>
+    }
+    else
+    {
+        <p>Edit the note</p>
+    }
+
+    <form method="post">
+        <textarea asp-for="Note"></textarea><br/>
+        <button type="submit">Save</button>
+    </form>
+
+    <br/><br/>
+    <a asp-page="/Index">Back to main page</a>
+</div>
+</body>
+</html>
